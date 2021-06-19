@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\micha\source\repos\TucanPass\TucanPass\obj\Debug\
+E:\TucanPass\TucanPass\obj\Debug\
 TucanPass
 none
 false
 DEBUG;TRACE
-C:\Users\micha\source\repos\TucanPass\TucanPass\App.xaml
-3-1371703749
+E:\TucanPass\TucanPass\App.xaml
+5-141414611
 
-9636186966
+13760458761
 2041867170753
-CreateAccountView.xaml;FrameContent.xaml;MainWindow.xaml;
+CreateAccountView.xaml;FrameContent.xaml;LogedInView.xaml;MainWindow.xaml;XD.xaml;
 
 False
 

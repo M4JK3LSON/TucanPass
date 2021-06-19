@@ -29,7 +29,9 @@ namespace TucanPass
 
         private void logInBTN_Click(object sender, RoutedEventArgs e)
         {
-
+            LogedInView logedInView = new LogedInView();
+            logedInView.Show();
+            this.Close();
         }
 
         private void createBTN_Click(object sender, RoutedEventArgs e)

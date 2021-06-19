@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xo29gIgvZwXVe+LbtGJgdfhnZOIDVlpT4z/bvzBL0BimfMwBuax5wpcVvdIvgbQ5R87Z+FhfeyG2uDIzWuHYSg==",
+  "dgSpecHash": "zoYSIw4qt0Wh55oEwCOakk9yER9iWbx+fLygoBIiDMgiPTd/jqbY+XLurXpryH7jNJtyJ0sYwcd8q8ujMgvFNA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\micha\\source\\repos\\TucanPass\\TucanPass\\TucanPass.csproj",
+  "projectFilePath": "E:\\TucanPass\\TucanPass\\TucanPass.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\micha\\.nuget\\packages\\microsoft.windows.sdk.contracts\\10.0.18362.2005\\microsoft.windows.sdk.contracts.10.0.18362.2005.nupkg.sha512",
     "C:\\Users\\micha\\.nuget\\packages\\system.runtime.windowsruntime\\4.6.0\\system.runtime.windowsruntime.4.6.0.nupkg.sha512",

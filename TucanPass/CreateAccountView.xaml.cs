@@ -24,6 +24,7 @@ namespace TucanPass
             InitializeComponent();
             ColorIt();
             this.DataContext = new ViewModel();
+            SyntaxChecker.FillSpecificCharacterLists();
         }
 
         private void ColorIt()
@@ -47,18 +48,21 @@ namespace TucanPass
             tipBackPlate.Fill = LayoutController.tucanOrangeColor;
             toolTipText.Background = new SolidColorBrush(Color.FromArgb(0,0,0,0));
 
-            publicKeyBTN.BorderThickness = new Thickness(2);
-            publicKeyBTN.BorderBrush = LayoutController.tucanBlackColor;
-            publicKeyBTN.Background = LayoutController.tucanOrangeColor;
+            nextStepBTN.Background = LayoutController.tucanOrangeColor;
+            nextStepBTN.Foreground = LayoutController.tucanBlackColor;
+        
 
-            privateKeyBTN.BorderThickness = new Thickness(2);
-            privateKeyBTN.BorderBrush = LayoutController.tucanBlackColor;
-            privateKeyBTN.Background = LayoutController.tucanOrangeColor;
+            //publicKeyBTN.BorderThickness = new Thickness(2);
+            //publicKeyBTN.BorderBrush = LayoutController.tucanBlackColor;
+            //publicKeyBTN.Background = LayoutController.tucanOrangeColor;
+
+            //privateKeyBTN.BorderThickness = new Thickness(2);
+            //privateKeyBTN.BorderBrush = LayoutController.tucanBlackColor;
+            //privateKeyBTN.Background = LayoutController.tucanOrangeColor;
 
             toolTipText.BorderThickness = new Thickness(0);
             
             toolTipText.AppendText("Hi! I am your TucanHelper" + System.Environment.NewLine);
-            
             toolTipText.AppendText("I have some informations for you. Now, you're creating new Tucan."+System.Environment.NewLine);
             toolTipText.AppendText("Set really strong MASTER PASSWORD. On mouse hover you can see a requirements for specific field." + System.Environment.NewLine);
             toolTipText.AppendText("Your PRIVATE KEY is your HOLY GRAIL. If you lost it - access to your Tukan will be unavaliable.");
@@ -68,37 +72,97 @@ namespace TucanPass
 
         private void loginBox_LostFocus(object sender, RoutedEventArgs e)
         {
-            bool xd = CheckCorrectLogin();
-            MessageBox.Show(xd.ToString(), "RESULT");
-        }
-
-        private bool CheckCorrectLogin()
-        {
-            char[] downloadedValue = loginBox.Text.ToCharArray();
-            if ((downloadedValue.Length > 3)&&(downloadedValue.Length<25))
+            bool recivedBoolValue = SyntaxChecker.DoesLoginPassLoginRequirments(loginBox.Text);
+            if (recivedBoolValue)
             {
-                for(int i = 0; i < downloadedValue.Length; i++)
-                {
-                    if (!(((int)downloadedValue[i] > 64) && ((int)downloadedValue[i] < 91) || ((int)downloadedValue[i] > 96) && ((int)downloadedValue[i] < 123)))
-                    {
-                        return false;
-                    }
-                }
-                return true;
+                loginBox.BorderBrush= LayoutController.GreenAcceptColor;
             }
             else
             {
-                return false;
+                
+                loginBox.BorderBrush = LayoutController.RedDeclineColor;
             }
-            
         }
-
-        private void privateKeyBTN_Click(object sender, RoutedEventArgs e)
+        private void emailBox_LostFocus(object sender, RoutedEventArgs e)
         {
+            bool recivedCheckerResult = SyntaxChecker.DoesEmailPassRequirments(emailBox.Text);
+            if (recivedCheckerResult)
+            {
+                emailBox.BorderBrush = LayoutController.GreenAcceptColor;
+            }
+            else
+            {
+                emailBox.BorderBrush = LayoutController.RedDeclineColor;
+            }
+        }
+
+        private void passwordBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (SyntaxChecker.DoesPasswordPassRequirments(passwordBox.Password))
+            {
+                passwordBox.BorderBrush = LayoutController.GreenAcceptColor;
+
+            }
+            else
+            {
+                passwordBox.BorderBrush = LayoutController.RedDeclineColor;
+            }
+        }
+
+
+        public bool DoesAllTextBoxesAreGreen()
+        {
+            if(loginBox.BorderBrush == LayoutController.GreenAcceptColor)
+            {
+                if(emailBox.BorderBrush == LayoutController.GreenAcceptColor)
+                {
+                    if(passwordBox.BorderBrush == LayoutController.GreenAcceptColor)
+                    {
+                        if(confirmPasswordBox.BorderBrush == LayoutController.GreenAcceptColor)
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+
+
+
+        private void nextStepBTN_Click(object sender, RoutedEventArgs e)
+        {
+            AdditionalAccountComponents aac = new AdditionalAccountComponents(loginBox.Text, Encoding.ASCII.GetBytes(passwordBox.Password), emailBox.Text);
+            ClearFormFields();
+            MessageBox.Show("Listen to me, that's IMPORTANT !\n Your lucky number is: " + aac.TakeLuckyNumber() + " SAVE IT SOMEWHERE!\n After close that communicat you should select directory. We will save an secret data REQUIRED while login process.","INFORMATION + LUCKY NUMBER");
+        }
+
+        private void ClearFormFields()
+        {
+            loginBox.Clear();
+            emailBox.Clear();
+            passwordBox.Clear();
+            confirmPasswordBox.Clear();
+        }
+
+        private void confirmPasswordBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if(passwordBox.BorderBrush == LayoutController.GreenAcceptColor)
+            {
+                if(passwordBox.Password == confirmPasswordBox.Password)
+                {
+                    confirmPasswordBox.BorderBrush = LayoutController.GreenAcceptColor;
+                }
+            }
+
+            if (DoesAllTextBoxesAreGreen())
+            {
+                nextStepBTN.Visibility = Visibility.Visible;
+            }
 
         }
 
-        private void publicKeyBTN_Click(object sender, RoutedEventArgs e)
+        private void nextStepBTN_Click_1(object sender, RoutedEventArgs e)
         {
 
         }

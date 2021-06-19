@@ -43,34 +43,37 @@
         <TextBlock Grid.Column="0" Grid.Row="5" Text="Your PASSWORD :" Style="{StaticResource creatingAccountTextBlock}" FontSize="14"></TextBlock>
         <!-- PASSWORD - CONFIRM -->
         <TextBlock Grid.Column="0" Grid.Row="6" Text="CONFIRM Your PASSWORD :" Style="{StaticResource creatingAccountTextBlock}" FontSize="14"></TextBlock>
-        <!-- PUBLIC KEY PATH -->
+        <!-- PUBLIC KEY PATH --><!--
         <TextBlock Grid.Column="0" Grid.Row="7" Text="PUBLIC KEY :" Style="{StaticResource creatingAccountTextBlock}"></TextBlock>
-        <!-- PRIVATE KEY PATH -->
-        <TextBlock Grid.Column="0" Grid.Row="8" Text="PRIVATE KEY :" Style="{StaticResource creatingAccountTextBlock}"></TextBlock>
+        --><!-- PRIVATE KEY PATH --><!--
+        <TextBlock Grid.Column="0" Grid.Row="8" Text="PRIVATE KEY :" Style="{StaticResource creatingAccountTextBlock}"></TextBlock>-->
 
         
 
         <!-- # REGION LOGIN TEXT BOXES -->
         <!-- LOGIN -->
-        <TextBox x:Name="loginBox" Grid.Column="1" Grid.Row="3" Style="{StaticResource textBoxBorder}" Text="{Binding login, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Stretch" VerticalAlignment="Center"  FontSize="15" Margin="10" ToolTip="Your login should have more than 3 characters. Do not use special and white characters." LostFocus="loginBox_LostFocus" ></TextBox>
+        <TextBox x:Name="loginBox" Grid.Column="1" Grid.Row="3" Style="{StaticResource textBoxBorder}" Text="{Binding login, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Stretch" VerticalAlignment="Center"  FontSize="15" Margin="10" ToolTip="Your login should have more than 6 characters. Do not use special and white characters." LostFocus="loginBox_LostFocus" ></TextBox>
         <!-- EMAIL -->
-        <TextBox x:Name="emailBox" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Center" FontSize="15" Margin="10" ToolTip="Input your general mail. Do not use 10 minute mail. It's REQUIRED for PASSWORD RESET or Account DELETE."></TextBox>
+        <TextBox x:Name="emailBox" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Center" FontSize="15" Margin="10" ToolTip="Input your general mail. Do not use 10 minute mail. It's REQUIRED for PASSWORD RESET or Account DELETE." LostFocus="emailBox_LostFocus"></TextBox>
         <!-- PASSWORD -->
-        <PasswordBox x:Name="passwordBox" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Center" FontSize="15" Margin="10" ToolTip="Input your MASTER PASSWORD. Strong PASSWORD: MINIMUM: 12 Charakcters, 1 big letter, 1 little letter, 1 number, 1 Special character."  ></PasswordBox>
+        <PasswordBox x:Name="passwordBox" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Center" FontSize="15" Margin="10" ToolTip="Input your MASTER PASSWORD. Strong PASSWORD: MINIMUM: 12 Charakcters, 1 big letter, 1 little letter, 1 number, 1 Special character." LostFocus="passwordBox_LostFocus"></PasswordBox>
         <!-- PASSWORD REPEAT -->
-        <PasswordBox  x:Name="confirmPasswordBox" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Stretch" VerticalAlignment="Center" FontSize="15" Margin="10" ToolTip="Repeat your MASTER PASSWORD"></PasswordBox>
-        <!-- PUBLIC KEY -->
+        <PasswordBox  x:Name="confirmPasswordBox" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Stretch" VerticalAlignment="Center" FontSize="15" Margin="10" ToolTip="Repeat your MASTER PASSWORD" LostFocus="confirmPasswordBox_LostFocus"></PasswordBox>
+
+        <Button x:Name="nextStepBTN" Grid.Row="7" Grid.Column="1" Content="NEXT STEP..." HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18" FontWeight="Medium" Click="nextStepBTN_Click" Visibility="Hidden"></Button> 
+        
+        <!-- PUBLIC KEY --><!--
         <TextBox x:Name="publicKeyBox" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Stretch" VerticalAlignment="Center" FontSize="15" Margin="10,10,35,10" ToolTip="Provide your public KEY. You can paste it or select file using BUTTON"></TextBox>
-        <!-- PRIVATE KEY -->
-        <TextBox x:Name="privateKeyBox" Grid.Column="1" Grid.Row="8" HorizontalAlignment="Stretch" VerticalAlignment="Center" FontSize="15" Margin="10,10,35,10" ToolTip="You need to provide a PRIVATE KEY. You MUST store a file with privateKey at ever device where you want to log in."></TextBox>
+        --><!-- PRIVATE KEY --><!--
+        <TextBox x:Name="privateKeyBox" Grid.Column="1" Grid.Row="8" HorizontalAlignment="Stretch" VerticalAlignment="Center" FontSize="15" Margin="10,10,35,10" ToolTip="You need to provide a PRIVATE KEY. You MUST store a file with privateKey at ever device where you want to log in."></TextBox>-->
         
         <!-- # REGION OTHER CONTROLLS -->
         <!-- BUTTON -->
-        <Button x:Name="registerBTN" Content="REGISTER ME!" Grid.Column="1" Grid.Row="9" Grid.RowSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="15" BorderThickness="2" FontSize="35" FontWeight="Bold" ></Button>
-        <!-- BUTTON PUBLIC KEY -->
+        <Button x:Name="registerBTN" Content="REGISTER ME!" Grid.Column="1" Grid.Row="9" Grid.RowSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="15" BorderThickness="2" FontSize="35" FontWeight="Bold" Visibility="Hidden" ></Button>
+        <!-- BUTTON PUBLIC KEY --><!--
         <Button x:Name="publicKeyBTN" Content="..." Grid.Column="1" Grid.Row="7" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5" Width="30" Click="publicKeyBTN_Click"></Button>
-        <!-- BUTTON PRIVATE KEY -->
-        <Button x:Name="privateKeyBTN" Content="..." Grid.Column="1" Grid.Row="8" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5" Width="30" Click="privateKeyBTN_Click"></Button>
+        --><!-- BUTTON PRIVATE KEY --><!--
+        <Button x:Name="privateKeyBTN" Content="..." Grid.Column="1" Grid.Row="8" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5" Width="30" Click="privateKeyBTN_Click"></Button>-->
             <!-- IMAGE - LEFT CORNER -->
         <Image Source="Assets/tukanAdd.png" Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" VerticalAlignment="Stretch" HorizontalAlignment="Center" Width="Auto" ></Image>
         <!-- IMAGE - MIDDLE BANER -->

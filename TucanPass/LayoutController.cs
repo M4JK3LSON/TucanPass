@@ -12,6 +12,9 @@ namespace TucanPass
     {
         public static SolidColorBrush tucanOrangeColor = new SolidColorBrush(Color.FromArgb(255, 255, 127, 43));
         public static SolidColorBrush tucanBlackColor = new SolidColorBrush(Color.FromArgb(255, 61, 57, 54));
+        public static SolidColorBrush GreenAcceptColor = new SolidColorBrush(Color.FromArgb(255, 72, 251, 0));
+        public static SolidColorBrush RedDeclineColor = new SolidColorBrush(Color.FromArgb(255, 255, 8, 0));
+
 
         public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
         {

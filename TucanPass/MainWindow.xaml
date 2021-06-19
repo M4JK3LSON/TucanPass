@@ -55,7 +55,5 @@
 
         <Rectangle x:Name="lineHorizontal" Fill="Black" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="8" Height="2"></Rectangle>
         
-        
-        
     </Grid>
 </Window>
