@@ -19,12 +19,13 @@ namespace TucanPass
     /// </summary>
     public partial class CreateAccountView : Window
     {
+        private SyntaxChecker syntaxChecker = new SyntaxChecker();
         public CreateAccountView()
         {
             InitializeComponent();
             ColorIt();
             this.DataContext = new ViewModel();
-            SyntaxChecker.FillSpecificCharacterLists();
+            syntaxChecker.FillSpecificCharacterLists();
         }
 
         private void ColorIt()
@@ -72,7 +73,7 @@ namespace TucanPass
 
         private void loginBox_LostFocus(object sender, RoutedEventArgs e)
         {
-            bool recivedBoolValue = SyntaxChecker.DoesLoginPassLoginRequirments(loginBox.Text);
+            bool recivedBoolValue = syntaxChecker.DoesLoginPassingSpecyficCharactersRequirments(loginBox.Text);
             if (recivedBoolValue)
             {
                 loginBox.BorderBrush= LayoutController.GreenAcceptColor;
@@ -85,7 +86,7 @@ namespace TucanPass
         }
         private void emailBox_LostFocus(object sender, RoutedEventArgs e)
         {
-            bool recivedCheckerResult = SyntaxChecker.DoesEmailPassRequirments(emailBox.Text);
+            bool recivedCheckerResult = syntaxChecker.DoesEmailPassRequirments(emailBox.Text);
             if (recivedCheckerResult)
             {
                 emailBox.BorderBrush = LayoutController.GreenAcceptColor;
@@ -98,7 +99,7 @@ namespace TucanPass
 
         private void passwordBox_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (SyntaxChecker.DoesPasswordPassRequirments(passwordBox.Password))
+            if (syntaxChecker.DoesPasswordPassRequirments(passwordBox.Password))
             {
                 passwordBox.BorderBrush = LayoutController.GreenAcceptColor;
 
